@@ -3,21 +3,42 @@
 <html>
  <head>
 
+<!-- Acceptrics Cookie Consent -->
 <script>
-window.acceptrics = {};
-localStorage.setItem("__acceptrics_conf", JSON.stringify({"bannerText":"We use cookies to analyze website traffic and understand how visitors engage with our site. By continuing to browse, you consent to our use of cookies for these purposes. We do not use cookies for advertising or personalized content.","gcmAdvanced":"false","backgroundColor":"#333","fontColor":"#ffffff","geoArea":"worldwide","accountNum":"rmdai8or","useTranslation":false,"bannerStyle":""})); document.addEventListener("__acceptrics_loaded", () =>{window.acceptrics.initializeSettings();});
+  window.acceptrics = {};
+  localStorage.setItem("__acceptrics_conf", JSON.stringify({
+    "bannerText": "We use cookies to analyze website traffic and understand how visitors engage with our site. By continuing to browse, you consent to our use of cookies for these purposes. We do not use cookies for advertising or personalized content.",
+    "gcmAdvanced": "false",
+    "backgroundColor": "#333",
+    "fontColor": "#ffffff",
+    "geoArea": "worldwide",
+    "accountNum": "rmdai8or",
+    "useTranslation": false,
+    "bannerStyle": ""
+  }));
+
+  document.addEventListener("__acceptrics_loaded", () => {
+    window.acceptrics.initializeSettings();
+  });
 </script>
 <script src="https://cdn.acceptrics.com?n=rmdai8or"></script>
 
- <!-- Google tag (gtag.js) -->
+<!-- Google Tag Manager (with Consent Check) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQH7QQ3LXH"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  function gtag() { dataLayer.push(arguments); }
 
-  gtag('config', 'G-VQH7QQ3LXH');
+  document.addEventListener("__acceptrics_consent_updated", () => {
+    let consent = localStorage.getItem("__acceptrics_consent");
+
+    if (consent === "true") { // Adjust if Acceptrics stores consent differently
+      gtag('js', new Date());
+      gtag('config', 'G-VQH7QQ3LXH');
+    }
+  });
 </script>
+
  <meta name="viewport" content="width=device-width, initial-scale=0.5">
  
 <style>
